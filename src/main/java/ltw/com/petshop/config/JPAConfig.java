@@ -57,8 +57,8 @@ public class JPAConfig {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
 //		 properties.setProperty("hibernate.hbm2ddl.auto", "update");
-//		properties.setProperty("hibernate.hbm2ddl.auto", "create");
-		 properties.setProperty("hibernate.hbm2ddl.auto", "none");
+		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+//		 properties.setProperty("hibernate.hbm2ddl.auto", "none");
 		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 
 		properties.put("hibernate.show_sql", true);

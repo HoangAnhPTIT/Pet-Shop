@@ -5,5 +5,12 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="persistence-data">
 		<class>ltw.com.petshop.entity.UserEntity</class>
+		<class>ltw.com.petshop.entity.CartEntity</class>
+		<class>ltw.com.petshop.entity.CategoryEntity</class>
+		<class>ltw.com.petshop.entity.ImportedBill</class>
+		<class>ltw.com.petshop.entity.ProductEntity</class>
+		<class>ltw.com.petshop.entity.RoleEntity</class>
+		<class>ltw.com.petshop.entity.UserVoucher</class>
+		<class>ltw.com.petshop.entity.VoucherEntity</class>
 	</persistence-unit>
 </persistence>

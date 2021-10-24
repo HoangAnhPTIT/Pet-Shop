@@ -6,6 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,12 +26,16 @@ public class CategoryEntity {
 	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "desc")
+	@Column(name = "description")
 	private String desc;
 	
-	@OneToMany(mappedBy = "categoryEntity")
-	private Set<CategoryProduct> categoryProducts;
-
+	@ManyToMany
+	@JoinTable(
+	  name = "category_product", 
+	  joinColumns = @JoinColumn(name = "product_id"), 
+	  inverseJoinColumns = @JoinColumn(name = "category_id"))
+	private Set<ProductEntity> productEntities;
+	
 	public String getId() {
 		return id;
 	}
@@ -51,14 +58,6 @@ public class CategoryEntity {
 
 	public void setDesc(String desc) {
 		this.desc = desc;
-	}
-
-	public Set<CategoryProduct> getCategoryProducts() {
-		return categoryProducts;
-	}
-
-	public void setCategoryProducts(Set<CategoryProduct> categoryProducts) {
-		this.categoryProducts = categoryProducts;
 	}
 	
 	
