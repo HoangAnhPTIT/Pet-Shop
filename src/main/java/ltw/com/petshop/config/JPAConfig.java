@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages="ltw.com.petshop.repository")	
+@EnableJpaRepositories(basePackages = "ltw.com.petshop.repository")
 public class JPAConfig {
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -56,10 +56,13 @@ public class JPAConfig {
 	Properties additionalProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-		// properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		properties.setProperty("hibernate.hbm2ddl.auto", "create");
-		//  properties.setProperty("hibernate.hbm2ddl.auto", "none");
-		 properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
+//		 properties.setProperty("hibernate.hbm2ddl.auto", "update");
+//		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		 properties.setProperty("hibernate.hbm2ddl.auto", "none");
+		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
+
+		properties.put("hibernate.show_sql", true);
+		properties.put("hibernate.format_sql", true);
 		return properties;
 	}
 }

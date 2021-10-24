@@ -30,7 +30,7 @@ public class RoleEntity {
 
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    public Set<UserEntity> roleUsers;
+    private Set<UserEntity> roleUsers;
 
     public RoleEntity() {
     }
@@ -64,5 +64,13 @@ public class RoleEntity {
     public void setCode(String code) {
         this.code = code;
     }
+
+	public Set<UserEntity> getRoleUsers() {
+		return roleUsers;
+	}
+
+	public void setRoleUsers(Set<UserEntity> roleUsers) {
+		this.roleUsers = roleUsers;
+	}
 
 }

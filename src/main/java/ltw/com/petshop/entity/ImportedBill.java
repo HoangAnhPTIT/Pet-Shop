@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "importedBill")
+@Table(name = "imported_bill")
 public class ImportedBill {
     @Id
     @GeneratedValue(generator = "uuid")
@@ -21,4 +21,21 @@ public class ImportedBill {
 
     @Column(name = "date")
     private Timestamp date;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Timestamp getDate() {
+		return date;
+	}
+
+	public void setDate(Timestamp date) {
+		this.date = date;
+	}
+    
 }

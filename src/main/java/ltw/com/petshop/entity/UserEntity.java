@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -48,8 +49,14 @@ public class UserEntity {
     private Long point;
 
     @ManyToMany(mappedBy = "roleUsers")
-    public Set<RoleEntity> userRoles;
+    private Set<RoleEntity> userRoles;
 
+    @OneToMany(mappedBy = "userEntity")
+    private Set<CartEntity> cartEntities;
+    
+    @OneToMany(mappedBy = "userEntity")
+    private Set<UserVoucher> userVouchers;
+    
     public UserEntity() {
     }
 
@@ -145,6 +152,30 @@ public class UserEntity {
     public void setPoint(Long point) {
         this.point = point;
     }
+
+	public Set<RoleEntity> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(Set<RoleEntity> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+	public Set<CartEntity> getCartEntities() {
+		return cartEntities;
+	}
+
+	public void setCartEntities(Set<CartEntity> cartEntities) {
+		this.cartEntities = cartEntities;
+	}
+
+	public Set<UserVoucher> getUserVouchers() {
+		return userVouchers;
+	}
+
+	public void setUserVouchers(Set<UserVoucher> userVouchers) {
+		this.userVouchers = userVouchers;
+	}
     
 
 }
